@@ -1,0 +1,43 @@
+.App {
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* React Flow Styles */
+.react-flow__handle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid #555;
+  background: #fff;
+}
+
+.react-flow__handle-left {
+  left: -4px;
+}
+
+.react-flow__handle-right {
+  right: -4px;
+}
+
+.react-flow__handle-connecting,
+.react-flow__handle-valid {
+  border-color: #10b981;
+}
+
+.react-flow__edge {
+  stroke: #6b7280;
+  stroke-width: 2;
+}
+
+.react-flow__edge.selected {
+  stroke: #10b981;
+}
+
+.react-flow__edge-path {
+  stroke-linecap: round;
+}
