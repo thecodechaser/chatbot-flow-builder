@@ -30,10 +30,10 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
   return (
     <div className="p-6">
       {/* Header */}
-      <div className="flex items-center space-x-3 mb-6">
+      <div className="flex items-center mb-6 space-x-3">
         <button
           onClick={onClose}
-          className="p-1 hover:bg-gray-100 rounded transition-colors duration-200"
+          className="p-1 transition-colors duration-200 rounded hover:bg-gray-100"
         >
           <ArrowLeft size={20} className="text-gray-600" />
         </button>
@@ -47,7 +47,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
         <div>
           <label 
             htmlFor="message-text" 
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block mb-2 text-sm font-medium text-gray-700"
           >
             Text
           </label>
@@ -56,18 +56,18 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
             value={text}
             onChange={(e) => handleTextChange(e.target.value)}
             placeholder="Enter your message..."
-            className="w-full p-3 border border-gray-300 rounded-md resize-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
+            className="w-full p-3 transition-colors duration-200 border border-gray-300 rounded-md resize-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             rows={4}
           />
         </div>
       </div>
 
-      {/* Additional settings can be added here */}
-      <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-        <h3 className="text-sm font-medium text-gray-700 mb-2">
+      {/* Additional settings section */}
+      <div className="p-4 mt-6 rounded-lg bg-gray-50">
+        <h3 className="mb-2 text-sm font-medium text-gray-700">
           Node Info:
         </h3>
-        <div className="text-xs text-gray-600 space-y-1">
+        <div className="space-y-1 text-xs text-gray-600">
           <div>ID: {selectedNode.id}</div>
           <div>Type: Message Node</div>
           <div>Position: ({Math.round(selectedNode.position.x)}, {Math.round(selectedNode.position.y)})</div>
