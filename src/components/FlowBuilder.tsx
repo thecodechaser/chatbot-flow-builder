@@ -17,9 +17,10 @@ import MessageNode from './nodes/MessageNode';
 import NodesPanel from './panels/NodesPanel';
 import SettingsPanel from './panels/SettingsPanel';
 import Header from './Header';
+import Footer from './Footer';
 import { NodeData } from '../types/nodeTypes';
 
-// Define custom node types
+// Custom node types
 const nodeTypes = {
   messageNode: MessageNode,
 };
@@ -43,7 +44,7 @@ const FlowBuilder: React.FC = () => {
   // Handle new connections between nodes
   const onConnect = useCallback(
     (params: Connection) => {
-      // Check if source already has a connection (only one edge per source handle)
+      // Check if source already has a connection
       const sourceHasConnection = edges.some(edge => 
         edge.source === params.source && edge.sourceHandle === params.sourceHandle
       );
@@ -134,7 +135,7 @@ const FlowBuilder: React.FC = () => {
       return;
     }
 
-    // Check for nodes with empty target handles (no incoming connections)
+    // Check for nodes with empty target handles
     const nodesWithoutIncoming = nodes.filter(node => {
       return !edges.some(edge => edge.target === node.id);
     });
@@ -152,12 +153,12 @@ const FlowBuilder: React.FC = () => {
   }, [nodes, edges]);
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="flex flex-col h-screen">
       <Header onSave={handleSave} saveError={saveError} saveSuccess={saveSuccess} />
       
-      <div className="flex-1 flex">
+      <div className="flex flex-1">
         {/* Main flow area */}
-        <div className="flex-1 relative" ref={reactFlowWrapper}>
+        <div className="relative flex-1" ref={reactFlowWrapper}>
           <ReactFlow
             nodes={nodes}
             edges={edges}
@@ -179,7 +180,7 @@ const FlowBuilder: React.FC = () => {
         </div>
 
         {/* Right sidebar */}
-        <div className="w-80 bg-white border-l border-gray-200 flex flex-col">
+        <div className="flex flex-col bg-white border-l border-gray-200 w-80">
           {selectedNode ? (
             <SettingsPanel
               selectedNode={selectedNode}
@@ -191,6 +192,7 @@ const FlowBuilder: React.FC = () => {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
